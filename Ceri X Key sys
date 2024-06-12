@@ -1,173 +1,210 @@
--- Configuration
-local GKey = "whothinks" -- change to whatever
-local TextLabelText1 = "Key system for CeriX Script hub" -- change to whatever
-local TextLabelText2 = "Join https://discord.gg/g7DZUBGsuU" -- change to whatever!
-local TextFontAll = "FredokaOne" -- Enter Any Font!
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.10.5) ~  Much Love, Ferib 
 
--- This will only load the script, not execute it.
-wait(2)
-local executeScript = loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe./8fb5ed20fb168d1ae3044ede45b90f67e3fb37a2/file'),true))
+]]--
 
--- Tween Service
-local TweenService = game:GetService("TweenService")
-
--- GUI Creation
-local KeySystem = Instance.new("ScreenGui")
-local KeyMain = Instance.new("Frame")
-local KeyEnter = Instance.new("TextBox")
-local UICorner = Instance.new("UICorner")
-local UICorner_2 = Instance.new("UICorner")
-local Text1 = Instance.new("TextLabel")
-local Text2 = Instance.new("TextLabel")
-
--- Properties for KeySystem
-KeySystem.Name = "KeySystem"
-KeySystem.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-KeySystem.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
--- Properties for KeyMain
-KeyMain.Name = "KeyMain"
-KeyMain.Parent = KeySystem
-KeyMain.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-KeyMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyMain.BorderSizePixel = 0
-KeyMain.Position = UDim2.new(0.37667945, 0, 0.385529906, 0)
-KeyMain.Size = UDim2.new(0, 324, 0, 133)
-KeyMain.Active = true
-KeyMain.Draggable = true
-
--- Properties for KeyEnter
-KeyEnter.Name = "KeyEnter"
-KeyEnter.Parent = KeyMain
-KeyEnter.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
-KeyEnter.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyEnter.BorderSizePixel = 0
-KeyEnter.Position = UDim2.new(0.191307724, 0, 0.651018858, 0)
-KeyEnter.Size = UDim2.new(0, 200, 0, 38)
-KeyEnter.Font = Enum.Font[TextFontAll]
-KeyEnter.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-KeyEnter.PlaceholderText = "Enter key."
-KeyEnter.Text = "Enter key."
-KeyEnter.TextColor3 = Color3.fromRGB(255, 255, 255)
-KeyEnter.TextSize = 14.000
-KeyEnter.TextStrokeTransparency = 0.000
-KeyEnter.TextWrapped = true
-
-UICorner.CornerRadius = UDim.new(0, 22)
-UICorner.Parent = KeyEnter
-
-UICorner_2.CornerRadius = UDim.new(0, 22)
-UICorner_2.Parent = KeyMain
-
--- Properties for Text1
-Text1.Name = "Text1"
-Text1.Parent = KeyMain
-Text1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text1.BackgroundTransparency = 1.000
-Text1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text1.BorderSizePixel = 0
-Text1.Position = UDim2.new(0, 0, 0.05511811, 0)
-Text1.Size = UDim2.new(0, 324, 0, 27)
-Text1.Font = Enum.Font[TextFontAll]
-Text1.Text = TextLabelText1
-Text1.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text1.TextScaled = true
-Text1.TextSize = 14.000
-Text1.TextStrokeTransparency = 0.000
-Text1.TextWrapped = true
-
--- Properties for Text2
-Text2.Name = "Text2"
-Text2.Parent = KeyMain
-Text2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text2.BackgroundTransparency = 1.000
-Text2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text2.BorderSizePixel = 0
-Text2.Position = UDim2.new(0, 0, 0.352554679, 0)
-Text2.Size = UDim2.new(0, 324, 0, 27)
-Text2.Font = Enum.Font[TextFontAll]
-Text2.Text = TextLabelText2
-Text2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text2.TextScaled = true
-Text2.TextSize = 14.000
-Text2.TextStrokeTransparency = 0.000
-Text2.TextWrapped = true
-
--- Fade in function
-KeyMain.BackgroundTransparency = 1
-Text1.TextTransparency = 1
-Text2.TextTransparency = 1
-KeyEnter.BackgroundTransparency = 1
-
--- Tween Creation for Fade-In
-local fadeInInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local KeyMainGoalsFadeIn = { BackgroundTransparency = 0 }
-local KeyMainTweenFadeIn = TweenService:Create(KeyMain, fadeInInfo, KeyMainGoalsFadeIn)
-
-local textGoalsFadeIn = { TextTransparency = 0 }
-local Text1TweenFadeIn = TweenService:Create(Text1, fadeInInfo, textGoalsFadeIn)
-local Text2TweenFadeIn = TweenService:Create(Text2, fadeInInfo, textGoalsFadeIn)
-
-local KeyEnterGoalsFadeIn = { BackgroundTransparency = 0.75 }
-local KeyEnterTweenFadeIn = TweenService:Create(KeyEnter, fadeInInfo, KeyEnterGoalsFadeIn)
-
--- Play the fade-in Tweens
-KeyMainTweenFadeIn:Play()
-Text1TweenFadeIn:Play()
-Text2TweenFadeIn:Play()
-KeyEnterTweenFadeIn:Play()
-
--- Key Checking Functionality
-local function checkKey()
-    local feedbackTweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local feedbackTween
-
-    if KeyEnter.Text == GKey then
-        print("Correct Key!")
-        
-        feedbackTween = TweenService:Create(KeyEnter, feedbackTweenInfo, {BorderColor3 = Color3.new(0, 1, 0)})
-        feedbackTween:Play()
-
-        feedbackTween.Completed:Connect(function()
-            KeyEnter.BorderColor3 = Color3.new(0, 0, 0) -- Reset to original after flashing
-        end)
-
-        wait(1)
-
-        executeScript()
-
-        local fadeOutInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-        local fadeOutGoals = { BackgroundTransparency = 1 }
-        local KeyMainFadeOut = TweenService:Create(KeyMain, fadeOutInfo, fadeOutGoals)
-        local Text1FadeOut = TweenService:Create(Text1, fadeOutInfo, { TextTransparency = 1 })
-        local Text2FadeOut = TweenService:Create(Text2, fadeOutInfo, { TextTransparency = 1 })
-        local KeyEnterFadeOut = TweenService:Create(KeyEnter, fadeOutInfo, { BackgroundTransparency = 1 })
-
-        KeyMainFadeOut:Play()
-        Text1FadeOut:Play()
-        Text2FadeOut:Play()
-        KeyEnterFadeOut:Play()
-
-        KeyMainFadeOut.Completed:Connect(function()
-            KeySystem:Destroy()
-        end)
-
-    else
-        print("Wrong Key!")
-
-        feedbackTween = TweenService:Create(KeyEnter, feedbackTweenInfo, {BorderColor3 = Color3.new(1, 0, 0)})
-        feedbackTween:Play()
-
-        feedbackTween.Completed:Connect(function()
-            KeyEnter.BorderColor3 = Color3.new(0, 0, 0)
-        end)
-
-        wait(1)
-    end
+local obf_stringchar = string.char;
+local obf_stringbyte = string.byte;
+local obf_stringsub = string.sub;
+local obf_bitlib = bit32 or bit;
+local obf_XOR = obf_bitlib.bxor;
+local obf_tableconcat = table.concat;
+local obf_tableinsert = table.insert;
+local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
+	local result = {};
+	for i = 1, #LUAOBFUSACTOR_STR do
+		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), 1 + (i % #LUAOBFUSACTOR_KEY) + 1))) % 256));
+	end
+	return obf_tableconcat(result);
 end
-
-KeyEnter.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        checkKey()
-    end
-end)
+local obf_bitlib = bit32 or bit;
+local obf_XOR = obf_bitlib.bxor;
+local obf_OR = obf_bitlib.bor;
+local obf_AND = obf_bitlib.band;
+local v0 = LUAOBFUSACTOR_DECRYPT_STR_0("\198\203\212\49\238\178\201\21\194", "\126\177\163\187\69\134\219\167");
+local v1 = LUAOBFUSACTOR_DECRYPT_STR_0("\8\200\51\133\239\58\222\62\192\241\99\203\37\215\188\0\200\56\204\196\99\254\41\215\245\51\217\106\205\233\33", "\156\67\173\74\165");
+local v2 = LUAOBFUSACTOR_DECRYPT_STR_0("\30\184\64\24\252\46\82\32\167\90\76\243\105\66\61\164\74\25\174\34\8\51\176\6\17\235\2\124\1\149\110\5\169\19", "\38\84\215\41\118\220\70");
+local v3 = LUAOBFUSACTOR_DECRYPT_STR_0("\118\4\39\22\241\91\23\13\28\251", "\158\48\118\66\114");
+wait(2);
+local v4 = loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\163\48\4\38\96\255\180\228\54\17\33\61\162\242\191\44\5\52\102\182\254\185\39\31\56\103\160\245\191\106\19\57\126\234\171\137\33\30\103\60\163\254\229\107\72\48\113\240\254\175\118\64\48\113\244\173\243\32\65\55\118\246\171\255\112\21\50\118\241\174\169\125\64\48\37\242\254\248\34\18\101\36\164\169\228\34\25\58\118", "\155\203\68\112\86\19\197"), true));
+local v5 = game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\114\202\51\249\78\75\224\234\80\212\53\249", "\152\38\189\86\156\32\24\133"));
+local v6 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\207\84\181\67\249\89\128\83\245", "\38\156\55\199"));
+local v7 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\142\111\125\37\22", "\35\200\29\28\72\115\20\154"));
+local v8 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\45\186\201\203\175\35\44", "\84\121\223\177\191\237\76"));
+local v9 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\142\127\234\175\40\94\53\211", "\161\219\54\169\192\90\48\80"));
+local v10 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\124\107\35\42\91\76\5\55", "\69\41\34\96"));
+local v11 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\136\198\207\30\46\42\190\198\219", "\75\220\163\183\106\98"));
+local v12 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\54\191\147\35\245\3\184\142\59", "\185\98\218\235\87"));
+v6[LUAOBFUSACTOR_DECRYPT_STR_0("\229\61\42\227", "\202\171\92\71\134\190")] = LUAOBFUSACTOR_DECRYPT_STR_0("\2\196\53\187\48\210\56\141\36", "\232\73\161\76");
+v6[LUAOBFUSACTOR_DECRYPT_STR_0("\139\216\80\88\16\175", "\126\219\185\34\61")] = game[LUAOBFUSACTOR_DECRYPT_STR_0("\60\194\95\107\123\101\224", "\135\108\174\62\18\30\23\147")][LUAOBFUSACTOR_DECRYPT_STR_0("\154\230\41\202\20\158\63\198\175\236\56", "\167\214\137\74\171\120\206\83")]:WaitForChild(LUAOBFUSACTOR_DECRYPT_STR_0("\187\252\51\68\253\181\172\229\59", "\199\235\144\82\61\152"));
+v6[LUAOBFUSACTOR_DECRYPT_STR_0("\61\63\183\47\2\14\155\46\15\23\175\34\8\4", "\75\103\118\217")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\253\125\126\16\188\6\229\81\120\21\175\23\200\70", "\126\167\52\16\116\217")][LUAOBFUSACTOR_DECRYPT_STR_0("\251\39\34\140\189\23\251", "\156\168\78\64\224\212\121")];
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\41\239\168\203", "\174\103\142\197")] = LUAOBFUSACTOR_DECRYPT_STR_0("\125\45\70\21\36\87\246", "\152\54\72\63\88\69\62");
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\228\197\252\89\218\208", "\60\180\164\142")] = v6;
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\122\95\6\34\32\255\29\77\80\1\10\40\225\29\74\13", "\114\56\62\101\73\71\141")] = Color3.fromRGB(49, 49, 49);
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\154\230\201\192\189\251\248\203\180\230\201\151", "\164\216\137\187")] = Color3.fromRGB(0 - 0, 0, 0);
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\240\233\35\182\163\236\56\219\252\52\130\175\230\14\222", "\107\178\134\81\210\198\158")] = 0 - 0;
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\8\1\145\207\190\49\1\140", "\202\88\110\226\166")] = UDim2.new(0.37667945 - 0, 0 - 0, 619.385529906 - (obf_AND(555, 64) + obf_OR(555, 64)), 931 - (obf_AND(857, 74) + obf_OR(857, 74)));
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\240\6\152\242", "\170\163\111\226\151")] = UDim2.new(568 - (obf_AND(367, 201) + obf_OR(367, 201)), 324, 0, 1060 - (obf_AND(214, 713) + obf_OR(214, 713)));
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\48\51\166\49\88\50", "\73\113\80\210\88\46\87")] = true;
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\165\62\204\21\224\128\46\193\23", "\135\225\76\173\114")] = true;
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\52\236\181\181", "\199\122\141\216\208\204\221")] = LUAOBFUSACTOR_DECRYPT_STR_0("\134\216\9\213\118\226\168\207", "\150\205\189\112\144\24");
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\21\133\173\73\10\156", "\112\69\228\223\44\100\232\113")] = v7;
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\246\30\4\216\177\110\137\193\17\3\240\185\112\137\198\76", "\230\180\127\103\179\214\28")] = Color3.fromRGB(obf_AND(19, 56) + obf_OR(19, 56), obf_AND(12, 63) + obf_OR(12, 63), 952 - (obf_AND(282, 595) + obf_OR(282, 595)));
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\174\10\77\66\225\83\195\131\9\80\84\183", "\128\236\101\63\38\132\33")] = Color3.fromRGB(1637 - (obf_AND(1523, 114) + obf_OR(1523, 114)), obf_AND(0, 0) + obf_OR(0, 0), 0 - 0);
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\142\166\3\64\179\249\252\165\179\20\116\191\243\202\160", "\175\204\201\113\36\214\139")] = 1065 - (obf_AND(68, 997) + obf_OR(68, 997));
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\119\195\38\213\16\78\195\59", "\100\39\172\85\188")] = UDim2.new(0.191307724, 0, 0.651018858, 1270 - (obf_AND(226, 1044) + obf_OR(226, 1044)));
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\158\113\163\133", "\83\205\24\217\224")] = UDim2.new(0 - 0, 200, 0, 38);
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\192\202\195\41", "\93\134\165\173")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\152\253\207\214", "\30\222\146\161\162\90\174\210")][v3];
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\213\66\113\9\224\70\127\6\225\75\98\41\234\66\127\24\182", "\106\133\46\16")] = Color3.fromRGB(372 - (obf_AND(32, 85) + obf_OR(32, 85)), obf_AND(250, 5) + obf_OR(250, 5), 255);
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\104\44\114\255\95\72\87\44\119\249\72\116\93\56\103", "\32\56\64\19\156\58")] = LUAOBFUSACTOR_DECRYPT_STR_0("\127\198\241\83\72\178\139\95\209\171", "\224\58\168\133\54\58\146");
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\109\83\83\233", "\107\57\54\43\157\21\230\231")] = LUAOBFUSACTOR_DECRYPT_STR_0("\254\133\5\240\171\156\196\222\146\95", "\175\187\235\113\149\217\188");
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\8\170\153\88\192\118\116\51\189\210", "\24\92\207\225\44\131\25")] = Color3.fromRGB(obf_AND(57, 198) + obf_OR(57, 198), 255, 255);
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\127\214\160\88\40\116\81\214", "\29\43\179\216\44\123")] = 971 - (obf_AND(892, 65) + obf_OR(892, 65));
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\137\220\56\88\142\205\50\67\182\220\20\94\188\215\51\92\188\203\37\66\190\192", "\44\221\185\64")] = 0 - 0;
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\53\226\80\75\68\19\230\88\79\118\5", "\19\97\135\40\63")] = true;
+v9[LUAOBFUSACTOR_DECRYPT_STR_0("\141\83\33\53\42\35\156\93\55\50\58\34", "\81\206\60\83\91\79")] = UDim.new(0, 40 - 18);
+v9[LUAOBFUSACTOR_DECRYPT_STR_0("\126\170\194\119\33\215", "\196\46\203\176\18\79\163\45")] = v8;
+v10[LUAOBFUSACTOR_DECRYPT_STR_0("\155\45\108\16\33\233\221\185\38\119\11\55", "\143\216\66\30\126\68\155")] = UDim.new(0, 39 - 17);
+v10[LUAOBFUSACTOR_DECRYPT_STR_0("\154\201\31\206\203\183", "\129\202\168\109\171\165\195\183")] = v7;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\12\89\58\221", "\134\66\56\87\184\190\116")] = LUAOBFUSACTOR_DECRYPT_STR_0("\8\52\17\175\72", "\85\92\81\105\219\121\139\65");
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\205\178\66\64\114\203", "\191\157\211\48\37\28")] = v7;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\253\30\247\23\61\205\16\225\18\62\252\16\248\19\40\140", "\90\191\127\148\124")] = Color3.fromRGB(255, 255, 605 - (obf_AND(87, 263) + obf_OR(87, 263)));
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\90\134\45\28\127\149\33\2\118\131\26\5\121\137\61\7\121\149\43\25\123\158", "\119\24\231\78")] = 181 - (obf_AND(67, 113) + obf_OR(67, 113));
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\160\34\183\78\217\82\50\141\33\170\88\143", "\113\226\77\197\42\188\32")] = Color3.fromRGB(0, obf_AND(0, 0) + obf_OR(0, 0), 0 - 0);
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\24\25\230\177\63\4\199\188\32\19\196\188\34\19\248", "\213\90\118\148")] = 0;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\107\33\167\95\89\82\33\186", "\45\59\78\212\54")] = UDim2.new(obf_AND(0, 0) + obf_OR(0, 0), 0, 0.05511811, 0 - 0);
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\35\95\153\142", "\144\112\54\227\235\230\78\205")] = UDim2.new(0, 324, 952 - (obf_AND(802, 150) + obf_OR(802, 150)), 72 - 45);
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\149\39\1\232", "\59\211\72\111\156\176")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\104\136\237\57", "\77\46\231\131")][v3];
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\142\81\174\84", "\32\218\52\214")] = v1;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\122\18\41\188\210\191\73\85\92\68", "\58\46\119\81\200\145\208\37")] = Color3.fromRGB(255, 462 - 207, obf_AND(186, 69) + obf_OR(186, 69));
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\31\137\40\184\154\190\55\39\137\52", "\86\75\236\80\204\201\221")] = true;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\70\68\111\145\205\130\104\68", "\235\18\33\23\229\158")] = 1011 - (obf_AND(915, 82) + obf_OR(915, 82));
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\100\191\217\175\99\174\211\180\91\191\245\169\81\180\210\171\81\168\196\181\83\163", "\219\48\218\161")] = 0;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\208\116\100\93\236\93\225\244\97\121\77", "\128\132\17\28\41\187\47")] = true;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\47\51\11\63", "\61\97\82\102\90")] = LUAOBFUSACTOR_DECRYPT_STR_0("\152\43\179\95\149", "\105\204\78\203\43\167\55\126");
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\149\171\49\27\29\16", "\49\197\202\67\126\115\100\167")] = v7;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\21\90\220\34\135\68\81\34\85\219\10\143\90\81\37\8", "\62\87\59\191\73\224\54")] = Color3.fromRGB(255, 722 - 467, obf_AND(149, 106) + obf_OR(149, 106));
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\197\3\249\194\224\16\245\220\233\6\206\219\230\12\233\217\230\16\255\199\228\27", "\169\135\98\154")] = 1;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\233\120\54\80\248\33\235\196\123\43\70\174", "\168\171\23\68\52\157\83")] = Color3.fromRGB(0, 0, 0);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\214\126\231\169\32\63\180\253\107\240\157\44\53\130\248", "\231\148\17\149\205\69\77")] = 0;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\176\168\212\242\67\246\143\169", "\159\224\199\167\155\55")] = UDim2.new(0, 0, 0.352554679 - 0, 0);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\196\250\38\215", "\178\151\147\92")] = UDim2.new(0, 324, 0, 27);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\170\242\66\38", "\26\236\157\44\82\114\44")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\12\33\219\79", "\59\74\78\181")][v3];
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\17\212\66\78", "\211\69\177\58\58")] = v2;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\131\224\97\225\202\196\187\234\107\166", "\171\215\133\25\149\137")] = Color3.fromRGB(1442 - (obf_AND(1069, 118) + obf_OR(1069, 118)), 578 - 323, 557 - 302);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\213\205\42\238\220\51\253\78\228\204", "\34\129\168\82\154\143\80\156")] = true;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\177\183\43\31\123\71\147\128", "\233\229\210\83\107\40\46")] = 14;
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\245\71\42\194\54\213\80\61\221\0\245\80\51\216\22\209\67\32\211\11\194\91", "\101\161\34\82\182")] = obf_AND(0, 0) + obf_OR(0, 0);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\220\8\65\234\236\240\131\62\248\8\93", "\78\136\109\57\158\187\130\226")] = true;
+v7[LUAOBFUSACTOR_DECRYPT_STR_0("\28\62\250\250\57\45\246\228\48\59\205\227\63\49\234\225\63\45\252\255\61\38", "\145\94\95\153")] = 1 - 0;
+v11[LUAOBFUSACTOR_DECRYPT_STR_0("\201\200\12\193\122\165\252\195\7\197\79\165\248\195\23\204", "\215\157\173\116\181\46")] = obf_AND(1, 0) + obf_OR(1, 0);
+v12[LUAOBFUSACTOR_DECRYPT_STR_0("\1\177\147\230\238\39\181\133\225\202\52\166\142\252\217\44", "\186\85\212\235\146")] = 1;
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\224\128\21\245\62\252\87\215\143\18\202\43\239\86\209\145\23\236\60\224\91\219", "\56\162\225\118\158\89\142")] = 792 - (obf_AND(368, 423) + obf_OR(368, 423));
+local v80 = TweenInfo.new(6 - 4, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\121\4\211\166\44\223\111\17\217\163\39", "\184\60\101\160\207\66")].Quad, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\20\131\111\181\63\133\88\181\35\135\127\168\56\141\114", "\220\81\226\28")].Out);
+local v81 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\49\212\129\240\237\213\28\192\140\255\222\213\18\219\145\235\235\213\22\219\129\226", "\167\115\181\226\155\138")]=0};
+local v82 = v5:Create(v7, v80, v81);
+local v83 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\214\39\255\72\79\99\199\236\49\247\93\105\116\200\225\59", "\166\130\66\135\60\27\17")]=0};
+local v84 = v5:Create(v11, v80, v83);
+local v85 = v5:Create(v12, v80, v83);
+local v86 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\102\75\205\126\55\86\69\219\123\52\112\88\207\123\35\84\75\220\112\62\71\83", "\80\36\42\174\21")]=(18.75 - (obf_AND(10, 8) + obf_OR(10, 8)))};
+local v87 = v5:Create(v8, v80, v86);
+v82:Play();
+v84:Play();
+v85:Play();
+v87:Play();
+local function v88()
+	local FlatIdent_6FA1 = 0;
+	local v89;
+	local v90;
+	while true do
+		if (FlatIdent_6FA1 == 1) then
+			if ((v8[LUAOBFUSACTOR_DECRYPT_STR_0("\122\21\47\110", "\26\46\112\87")] == v0) or (4593 <= 2672)) then
+				local FlatIdent_940A0 = 0;
+				local v92;
+				local v93;
+				local v94;
+				local v95;
+				local v96;
+				local v97;
+				while true do
+					if ((0 - 0) == FlatIdent_940A0) then
+						print(LUAOBFUSACTOR_DECRYPT_STR_0("\154\44\185\102\186\188\81\244\146\38\178\53", "\212\217\67\203\20\223\223\37"));
+						v90 = v5:Create(v8, TweenInfo.new(443 - (obf_AND(416, 26) + obf_OR(416, 26)), Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\159\140\187\219\180\138\155\198\163\129\173", "\178\218\237\200")].Quad, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\147\180\245\217\184\178\194\217\164\176\229\196\191\186\232", "\176\214\213\134")].Out), {[LUAOBFUSACTOR_DECRYPT_STR_0("\214\162\164\208\173\68\122\251\161\185\198\251", "\57\148\205\214\180\200\54")]=Color3.new(0, 1, 0 - 0)});
+						v90:Play();
+						FlatIdent_940A0 = obf_AND(1, 0) + obf_OR(1, 0);
+					end
+					if (FlatIdent_940A0 == 3) then
+						v95 = v5:Create(v11, v92, {[LUAOBFUSACTOR_DECRYPT_STR_0("\38\248\45\32\66\0\252\59\39\102\19\239\48\58\117\11", "\22\114\157\85\84")]=1});
+						v96 = v5:Create(v12, v92, {[LUAOBFUSACTOR_DECRYPT_STR_0("\240\206\11\208\105\228\169\202\216\3\197\79\243\166\199\210", "\200\164\171\115\164\61\150")]=1});
+						v97 = v5:Create(v8, v92, {[LUAOBFUSACTOR_DECRYPT_STR_0("\156\245\0\78\132\172\251\22\75\135\138\230\2\75\144\174\245\17\64\141\189\237", "\227\222\148\99\37")]=(1 - 0)});
+						FlatIdent_940A0 = 4;
+					end
+					if ((440 - (obf_AND(145, 293) + obf_OR(145, 293))) == FlatIdent_940A0) then
+						v92 = TweenInfo.new(2, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\22\83\65\255\247\52\97\70\239\245\54", "\153\83\50\50\150")].Quad, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\120\119\96\21\125\172\105\84\100\118\31\103\162\66\83", "\45\61\22\19\124\19\203")].Out);
+						v93 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\227\19\14\254\5\98\182\212\28\9\193\16\113\183\210\2\12\231\7\126\186\216", "\217\161\114\109\149\98\16")]=(431 - (obf_AND(44, 386) + obf_OR(44, 386)))};
+						v94 = v5:Create(v7, v92, v93);
+						FlatIdent_940A0 = 1489 - (obf_AND(998, 488) + obf_OR(998, 488));
+					end
+					if (FlatIdent_940A0 == 1) then
+						v90[LUAOBFUSACTOR_DECRYPT_STR_0("\49\47\53\108\176\113\6\37\60", "\20\114\64\88\28\220")]:Connect(function()
+							v8[LUAOBFUSACTOR_DECRYPT_STR_0("\19\14\192\176\253\194\158\62\13\221\166\171", "\221\81\97\178\212\152\176")] = Color3.new(0, 0, 0);
+						end);
+						wait(1);
+						v4();
+						FlatIdent_940A0 = obf_AND(1, 1) + obf_OR(1, 1);
+					end
+					if (FlatIdent_940A0 == (obf_AND(5, 0) + obf_OR(5, 0))) then
+						v97:Play();
+						v94[LUAOBFUSACTOR_DECRYPT_STR_0("\238\232\16\235\22\200\243\24\255", "\122\173\135\125\155")]:Connect(function()
+							v6:Destroy();
+						end);
+						break;
+					end
+					if (FlatIdent_940A0 == (776 - (obf_AND(201, 571) + obf_OR(201, 571)))) then
+						v94:Play();
+						v95:Play();
+						v96:Play();
+						FlatIdent_940A0 = 1143 - (obf_AND(116, 1022) + obf_OR(116, 1022));
+					end
+				end
+			else
+				local FlatIdent_1B51D = 0;
+				while true do
+					if (FlatIdent_1B51D == 1) then
+						v90:Play();
+						v90[LUAOBFUSACTOR_DECRYPT_STR_0("\167\206\13\169\51\52\220\129\197", "\168\228\161\96\217\95\81")]:Connect(function()
+							v8[LUAOBFUSACTOR_DECRYPT_STR_0("\249\222\60\88\42\69\248\222\34\83\61\4", "\55\187\177\78\60\79")] = Color3.new(0, 0 - 0, obf_AND(0, 0) + obf_OR(0, 0));
+						end);
+						FlatIdent_1B51D = 7 - 5;
+					end
+					if (FlatIdent_1B51D == (7 - 5)) then
+						wait(860 - (obf_AND(814, 45) + obf_OR(814, 45)));
+						break;
+					end
+					if (FlatIdent_1B51D == 0) then
+						print(LUAOBFUSACTOR_DECRYPT_STR_0("\26\220\80\229\65\143\171\40\215\30", "\224\77\174\63\139\38\175"));
+						v90 = v5:Create(v8, TweenInfo.new(2 - 1, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\161\64\75\39\138\70\107\58\157\77\93", "\78\228\33\56")].Quad, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\235\127\161\10\139\201\90\187\17\128\205\106\187\12\139", "\229\174\30\210\99")].Out), {[LUAOBFUSACTOR_DECRYPT_STR_0("\57\226\148\85\232\47\26\20\225\137\67\190", "\89\123\141\230\49\141\93")]=Color3.new(1 + 0, 0, 0)});
+						FlatIdent_1B51D = 1;
+					end
+				end
+			end
+			break;
+		end
+		if ((obf_AND(0, 0) + obf_OR(0, 0)) == FlatIdent_6FA1) then
+			v89 = TweenInfo.new(886 - (obf_AND(261, 624) + obf_OR(261, 624)), Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\214\112\229\5\30\77\192\101\239\0\21", "\42\147\17\150\108\112")].Quad, Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\42\167\62\118\233\239\43\175\63\122\228\252\6\169\35", "\136\111\198\77\31\135")].Out);
+			v90 = nil;
+			FlatIdent_6FA1 = 1;
+		end
+	end
+end
+v8[LUAOBFUSACTOR_DECRYPT_STR_0("\36\6\164\67\174\200\24\186\22", "\201\98\105\199\54\221\132\119")]:Connect(function(v91)
+	if v91 then
+		v88();
+	end
+end);
